@@ -6,28 +6,26 @@ import imgJourney from '../../static/images/imgJourney.jpeg'
 
 import classes from './style.module.scss'
 
-function CardJourney({ image, title, timestamp, shortdesc }) {
-
-    const [change, setChange] = useState(false)
+function CardJourney({ image, title, timestamp, shortdesc, onClickDetail, onClickBookmark }) {
 
     return (
         <div className={classes.card}>
             <div className={classes.cardContent}>
                 <div className={classes.imgJourney}>
-                    <img src={imgJourney} alt="Image" />
+                    <img src={image} alt="Image" />
                 </div>
-                <div className={classes.infoJourney}>
+                <div onClick={onClickDetail} className={classes.infoJourney}>
                     <h3 className={classes.titleJourney}>
-                        Bersemayam di tanah Dewata
+                        {title}
                     </h3>
                     <p className={classes.timestampJourney}>
-                        29 July 2020, Cipto
+                        {timestamp}
                     </p>
                     <p className={classes.shortdescJourney}>
-                        Liburan di tahun baru 2020 keberangkatan saya menuju Pulau Dewata Bali.  Sampai lah saya malam itu di Bali Airport menujukan waktu jam 02.00, dan melanjutkan pejalanan yang menyenangkan..
+                        {shortdesc}
                     </p>
                 </div>
-                <div onClick={() => setChange(!change)} className={classes.bookmarkContainer}>
+                <div onClick={onClickBookmark} className={classes.bookmarkContainer}>
                     {/* <BookmarkSharpIcon sx={{ color: '#3B97D3' }} fontSize='small' /> */}
 
                     <BookmarkBorderSharpIcon sx={{ color: '#3B97D3' }} fontSize='small' />

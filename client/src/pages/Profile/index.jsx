@@ -11,15 +11,19 @@ import CardJourney from '@components/CardJourney';
 
 import classes from './style.module.scss'
 import CardProfile from './components/CardProfile';
-import { selectProfile } from './selectors';
+import { selectPost, selectProfile } from './selectors';
 import { createStructuredSelector } from 'reselect';
-import { getProfileUser } from './actions';
+import { getProfilePost, getProfileUser } from './actions';
+import { useNavigate } from 'react-router-dom';
 
-const Profile = ({ profile }) => {
+const Profile = ({ profile, myPost }) => {
+
+  const navigate = useNavigate()
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProfileUser());
+    dispatch(getProfilePost())
   }, [dispatch]);
 
   return (
@@ -30,30 +34,34 @@ const Profile = ({ profile }) => {
         </h2>
       </div>
       <div className={classes.containerCard}>
-        <CardProfile name={profile?.profile.fullname} email={profile?.profile.email} />
+        <CardProfile name={profile?.profile?.fullname} email={profile?.profile?.email} />
       </div>
       <div className={classes.containerButtonAddNewPost}>
-        <Button variant="contained">
+        <Button onClick={() => navigate('/create-post')} variant="contained">
           <FormattedMessage id="app_add_new_post" />
         </Button>
       </div>
       <div className={classes.gridJourney}>
-        <CardJourney />
-        <CardJourney />
-        <CardJourney />
-        <CardJourney />
-        <CardJourney />
+        {
+          myPost?.map((data, index) => {
+            return (
+              <CardJourney image={data?.imageUrl} title={data?.title} shortdesc={data?.shortDesc} />
+            )
+          })
+        }
       </div>
     </div>
   );
 };
 
 Profile.propTypes = {
-  profile: PropTypes.object
+  profile: PropTypes.object,
+  myPost: PropTypes.array
 }
 
 const mapStateToProps = createStructuredSelector({
-  profile: selectProfile
+  profile: selectProfile,
+  myPost: selectPost
 })
 
 export default connect(mapStateToProps)(Profile);

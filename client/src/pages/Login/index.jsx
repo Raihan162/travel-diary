@@ -14,6 +14,7 @@ import encryptPayload from '@utils/encryptHelper';
 import { postLoginRequest } from './actions';
 import { setLogin, setToken } from '@containers/Client/actions';
 import { selectLogin } from './selectors';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = ({ login }) => {
 
@@ -30,6 +31,9 @@ const Login = ({ login }) => {
   }
 
   const onSubmit = () => {
+    if (!user.email || !user.password) {
+      return toast.error('Please fill email and password')
+    }
     const loginUser = {
       email: encryptPayload(user.email),
       password: encryptPayload(user.password)
@@ -46,15 +50,18 @@ const Login = ({ login }) => {
   }
 
   return (
-    <div className={classes.container}>
-      <CardAuth
-        onChangeEmail={(e) => onChangeHandler(e.target.value, 'email')}
-        onChangePassword={(e) => onChangeHandler(e.target.value, 'password')}
-        onClickLogin={() => onSubmit()}
-        onClickToRegister={toRegisterPage}
-        title={"app_login"}
-      />
-    </div>
+    <>
+      <div className={classes.container}>
+        <CardAuth
+          onChangeEmail={(e) => onChangeHandler(e.target.value, 'email')}
+          onChangePassword={(e) => onChangeHandler(e.target.value, 'password')}
+          onClickLogin={() => onSubmit()}
+          onClickToRegister={toRegisterPage}
+          title={"app_login"}
+        />
+      </div>
+      <Toaster />
+    </>
   );
 };
 

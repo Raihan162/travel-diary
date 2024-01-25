@@ -34,19 +34,19 @@ const routes = [
   {
     path: '/profile',
     name: 'Profile',
-    protected: false,
+    protected: true,
     component: Profile,
     layout: MainLayout,
   },
   {
     path: '/bookmark',
     name: 'Bookmark',
-    protected: false,
+    protected: true,
     component: Bookmark,
     layout: MainLayout,
   },
   {
-    path: '/detail-post',
+    path: '/detail-post/:id',
     name: 'DetailPost',
     protected: false,
     component: DetailPost,
@@ -55,7 +55,7 @@ const routes = [
   {
     path: '/create-post',
     name: 'CreatePost',
-    protected: false,
+    protected: true,
     component: NewPost,
     layout: MainLayout,
   },

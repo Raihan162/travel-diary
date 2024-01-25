@@ -27,5 +27,6 @@ export default {
   app_short_desc: 'Short Description',
   app_upload: 'Upload',
   app_post: 'Post',
-  app_upload_image: 'Upload Image'
+  app_upload_image: 'Upload Image',
+  file_error: 'File must be image!'
 };

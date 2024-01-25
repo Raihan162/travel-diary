@@ -27,5 +27,6 @@ export default {
   app_short_desc: 'Deskripsi Singkat',
   app_upload: 'Unggah',
   app_post: 'Kirim',
-  app_upload_image: 'Unggah Gambar'
+  app_upload_image: 'Unggah Gambar',
+  file_error: 'Dokumen harus berupa gambar!'
 };

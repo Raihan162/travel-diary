@@ -109,6 +109,7 @@ const Navbar = ({ title, locale, theme, login }) => {
     setShowDropdown(false)
     dispatch(setLogin(false))
     dispatch(setToken(null))
+    navigate('/')
   }
 
   return (

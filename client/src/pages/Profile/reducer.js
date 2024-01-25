@@ -1,12 +1,13 @@
 import { produce } from "immer";
 
-import { GET_PROFILE, SET_PROFILE } from "./constants";
+import { GET_POST, GET_PROFILE, SET_POST, SET_PROFILE } from "./constants";
 
 export const initialState = {
-    profile: {}
+    profile: {},
+    myPost: []
 }
 
-export const storedKey = ['profile']
+export const storedKey = ['profile', 'myPost']
 
 const profileReducer = (state = initialState, action) =>
     produce(state, (draft) => {
@@ -17,6 +18,13 @@ const profileReducer = (state = initialState, action) =>
             case SET_PROFILE:
                 draft.profile = action.data
                 break;
+
+            case GET_POST:
+                draft.myPost = action.myPost
+                break;
+            case SET_POST:
+                draft.myPost = action.data
+
             default:
                 break;
         }

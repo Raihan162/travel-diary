@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { Button, TextField } from '@mui/material';
@@ -13,14 +13,31 @@ import classes from './style.module.scss'
 import Dropdown from '@components/Dropdown';
 import { createStructuredSelector } from 'reselect';
 import { selectLogin } from '@containers/Client/selectors';
+import { getAllPost } from './actions';
+import { selectAllPost } from './selectors';
+import { useNavigate } from 'react-router-dom';
+import { createBookmark } from '@pages/Bookmark/actions';
 
-const Home = ({ login }) => {
+const Home = ({ login, allPost }) => {
+
   const dispatch = useDispatch();
-  // console.log(login)
+  const navigate = useNavigate();
+
+  const [changeBookmark, setChangeBookmark] = useState(false)
+
+  const toDetail = (id) => {
+    navigate(`/detail-post/${id}`)
+  }
 
   useEffect(() => {
     dispatch(ping());
+    dispatch(getAllPost())
   }, [dispatch]);
+
+
+  const handlerAddBookmark = (id) => {
+    dispatch(createBookmark({ postId: String(id) }))
+  }
 
   return (
     <div>
@@ -43,11 +60,13 @@ const Home = ({ login }) => {
           </Button>
         </div>
         <div className={classes.gridJourney}>
-          <CardJourney />
-          <CardJourney />
-          <CardJourney />
-          <CardJourney />
-          <CardJourney />
+          {
+            allPost?.map((data, index) => {
+              return (
+                <CardJourney onClickDetail={() => toDetail(data?.id)} key={index} image={data?.imageUrl} title={data?.title} shortdesc={data?.shortDesc} onClickBookmark={() => handlerAddBookmark(data?.id)} />
+              )
+            })
+          }
         </div>
       </div>
     </div>
@@ -55,11 +74,13 @@ const Home = ({ login }) => {
 };
 
 Home.propTypes = {
-  login: PropTypes.bool
+  login: PropTypes.bool,
+  allPost: PropTypes.array
 }
 
 const mapStateToProps = createStructuredSelector({
-  login: selectLogin
+  login: selectLogin,
+  allPost: selectAllPost
 })
 
 export default connect(mapStateToProps)(Home);
