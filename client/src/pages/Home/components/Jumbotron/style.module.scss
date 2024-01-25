@@ -1,0 +1,69 @@
+@import '../../../../styles/base.scss';
+
+* {
+    margin: 0;
+
+}
+
+.bgJumbotron {
+    background: url('../../../../static/images/background.jpeg');
+    background-position: 50% 85%;
+    background-size: cover;
+    width: 100%;
+    height: 510px;
+    min-height: 100px;
+    max-height: 510px;
+    flex-shrink: 0;
+    display: flex;
+    margin-top: -92px;
+
+    .contentJumbotron {
+        width: 100%;
+        // height: 214px;
+        flex-shrink: 0;
+        margin: 183px 30px 113px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include apply-at-lg-size {
+            width: 1247px;
+            // height: 214px;
+            flex-shrink: 0;
+            margin: 183px 96px 113px 96px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        h1 {
+            width: 100%;
+            height: 144px;
+
+            @include apply-at-lg-size {
+                width: 700px;
+                height: 144px;
+            }
+
+            margin: 0;
+            color: #FFF;
+            font-family: Roboto;
+            font-size: 64px;
+            font-style: italic;
+            line-height: 112.2%;
+            /* 71.808px */
+            letter-spacing: -1.92px;
+        }
+
+        p {
+            margin: 0;
+            height: 56px;
+            color: #FFF;
+            font-family: Roboto;
+            font-size: 24px;
+            font-style: italic;
+            font-weight: 100;
+            line-height: normal;
+        }
+    }
+}

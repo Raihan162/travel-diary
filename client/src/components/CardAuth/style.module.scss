@@ -1,0 +1,130 @@
+@import '@styles/base';
+
+.card {
+    width: 416px;
+    height: max-content;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0 33px;
+    @include directionY;
+    align-items: center;
+
+    .titleLogin {
+        margin: 50px 0 45px 0;
+
+        h3 {
+            color: #000;
+            font-family: Poppins;
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+    }
+
+    .inputContainer {
+        @include directionY;
+        width: 100%;
+        margin-bottom: 19px;
+
+        label {
+            color: #000;
+            font-family: Poppins;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-left: 9px;
+            margin-bottom: 12px;
+        }
+
+        input {
+            height: 50px;
+            padding: 0 10px;
+            font-size: 24px;
+            border-radius: 5px;
+            border: 2px solid rgba(210, 210, 210, 0.25);
+            background: rgba(210, 210, 210, 0.25);
+        }
+    }
+
+    .titleButtonLogin {
+        margin-bottom: 16px;
+        margin-top: 35px;
+    }
+
+    .titleButtonRegister {
+        margin-bottom: 25px;
+        margin-top: 38px;
+    }
+
+    .donthaveacc {
+        color: #B1B1B1;
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: italic;
+        font-weight: 100;
+        line-height: normal;
+        margin-bottom: 26px;
+    }
+}
+
+.cardRegister {
+    width: 416px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0 33px;
+    @include directionY;
+    align-items: center;
+
+    .titleLogin {
+        margin: 50px 0 45px 0;
+
+        h3 {
+            color: #000;
+            font-family: Poppins;
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+    }
+
+    .inputContainer {
+        @include directionY;
+        width: 100%;
+        margin-bottom: 19px;
+
+        label {
+            color: #000;
+            font-family: Poppins;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-left: 9px;
+            margin-bottom: 12px;
+        }
+
+        input {
+            height: 50px;
+            padding: 0 10px;
+            font-size: 24px;
+            border-radius: 5px;
+            border: 2px solid rgba(210, 210, 210, 0.25);
+            background: rgba(210, 210, 210, 0.25);
+        }
+    }
+
+    .titleButtonLogin {
+        margin-bottom: 16px;
+        margin-top: 35px;
+    }
+
+    .titleButtonRegister {
+        margin-bottom: 25px;
+        margin-top: 38px;
+    }
+}

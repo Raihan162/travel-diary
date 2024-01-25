@@ -1,0 +1,38 @@
+@import '@styles/base';
+
+.profileContainer {
+    width: 200px;
+    height: 276px;
+    flex-shrink: 0;
+    @include directionY;
+    align-items: center;
+
+    img {
+        width: 171px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+
+    .name {
+        color: #000;
+        font-family: Roboto;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        margin-top: 22px;
+    }
+
+    .email {
+        color: #6C6C6C;
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: italic;
+        font-weight: 100;
+        line-height: normal;
+        margin-top: 5px;
+        margin-bottom: 27px;
+    }
+}

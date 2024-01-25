@@ -1,0 +1,52 @@
+@import '@styles/base';
+
+.content {
+    height: 100%;
+    padding: 42px 50px 0 50px;
+
+    .subTitle {
+        h2 {
+            color: #000;
+            font-family: Roboto;
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: normal;
+        }
+    }
+
+    .searchBar {
+        margin-top: 50px;
+        padding: 0 40px;
+        position: relative;
+        @include directionX;
+
+        .buttonSearch {
+            position: absolute;
+            height: 100%;
+            right: 0;
+        }
+    }
+
+    .gridJourney {
+        margin: 40px 0;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+
+        @include apply-at-md-size {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include apply-at-xl-size {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include apply-at-xxl-size {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        justify-items: center;
+        column-gap: 47px;
+        row-gap: 40px;
+    }
+}

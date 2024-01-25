@@ -1,0 +1,116 @@
+@import '@styles/base';
+
+.content {
+    padding: 65px 57px;
+    @include directionY;
+    align-items: center;
+    gap: 20px;
+
+    .subTitle {
+        h2 {
+            color: #000;
+            font-family: Roboto;
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: normal;
+        }
+    }
+
+    .uploadImageContainer {
+        width: 90%;
+
+        h3 {
+            color: #000;
+            font-family: Poppins;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        .buttonUpload {
+            margin-top: 10px;
+        }
+
+    }
+
+    .titleContainer {
+        width: 90%;
+
+        h3 {
+            color: #000;
+            font-family: Poppins;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        input {
+            font-size: 20px;
+            width: 98%;
+            padding: 10px;
+        }
+
+    }
+
+    .shortDescContainer {
+        width: 90%;
+
+        h3 {
+            color: #000;
+            font-family: Poppins;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        input {
+            font-size: 20px;
+            width: 98%;
+            padding: 10px;
+        }
+    }
+
+    .descContainer {
+        height: max-content;
+        width: 90%;
+
+        h3 {
+            color: #000;
+            font-family: Poppins;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        .desc {
+            background-color: #FFFFFF;
+            // min-height: 215px;
+            height: 215px;
+            width: 100%;
+        }
+    }
+
+    .buttonPost {
+        margin-top: 50px;
+        width: 90%;
+        @include directionX;
+        justify-content: end;
+
+        button {
+            color: #FFFFFF;
+            font-weight: 500;
+            width: 100px;
+            height: 30px;
+            flex-shrink: 0;
+            border: 0;
+            border-radius: 5px;
+            background: #2E86DE;
+            cursor: pointer;
+        }
+    }
+}
